@@ -1,0 +1,35 @@
+name: freqtrade
+services:
+  freqtrade:
+    image: freqtradeorg/freqtrade:stable_freqaitorch
+    env_file:
+      - .env
+    environment:
+      - FT_EXCHANGE__KEY=${FT_EXCHANGE__KEY}
+      - FT_EXCHANGE__SECRET=${FT_EXCHANGE__SECRET}
+      - FT_TELEGRAM__TOKEN=${FT_TELEGRAM__TOKEN}
+      - FT_TELEGRAM__CHAT_ID=${FT_TELEGRAM__CHAT_ID}
+
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+    # restart: unless-stopped
+    restart: no
+    container_name: bybit
+    volumes:
+      - "./bybit:/freqtrade/user_data"
+    ports:
+      - "127.0.0.1:8081:8080"
+    #entrypoint: sh # Reverted
+    command: >
+      trade
+      --logfile /freqtrade/user_data/logs/freqtrade.log
+      --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite
+      --config /freqtrade/user_data/config.json
+      --freqaimodel XGBoostRegressor
+      --strategy MainStrategy
