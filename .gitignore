@@ -18,30 +18,27 @@ env/
 *.sqlite3
 *.log
 bybit/logs/
-bybit/data/ # If you store data here that shouldn't be committed
+bybit/data/bybit/futures/
 bybit/tradesv3.sqlite
 bybit/tradesv3.sqlite-shm
 bybit/tradesv3.sqlite-wal
 
 
 # Freqtrade specific
+bybit/plot/
 bybit/backtest_results/
 bybit/hyperopt_results/
-bybit/plot/
-user_data/backtest_results/
-user_data/hyperopt_results/
-user_data/plot/
-user_data/logs/
-user_data/data/ # If you store data here that shouldn't be committed
-user_data/exchange-secrets.json # Common location for exchange secrets
-user_data/configs/*.json # Ignore all configs in user_data/configs
-!user_data/configs/sample_config.json # Except for a sample one
+bybit/logs/
+bybit/data/ # If you store data here that shouldn't be committed
+bybit/exchange-secrets.json # Common location for exchange secrets
+bybit/configs/*.json # Ignore all configs in bybit/configs
+!bybit/configs/sample_config.json # Except for a sample one
 
 # ML / FreqAI
 bybit/models/
 bybit/models_backup/
 bybit/freqaimodels/
-user_data/freqaimodels/
+bybit/freqaimodels/
 
 # Notebooks
 bybit/notebooks/.ipynb_checkpoints/

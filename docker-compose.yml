@@ -2,13 +2,11 @@ name: freqtrade
 services:
   freqtrade:
     image: freqtradeorg/freqtrade:stable_freqaitorch
-    env_file:
-      - .env
     environment:
-      - FT_EXCHANGE__KEY=${FT_EXCHANGE__KEY}
-      - FT_EXCHANGE__SECRET=${FT_EXCHANGE__SECRET}
-      - FT_TELEGRAM__TOKEN=${FT_TELEGRAM__TOKEN}
-      - FT_TELEGRAM__CHAT_ID=${FT_TELEGRAM__CHAT_ID}
+      - FREQTRADE__EXCHANGE__KEY=${FREQTRADE__EXCHANGE__KEY}
+      - FREQTRADE__EXCHANGE__SECRET=${FREQTRADE__EXCHANGE__SECRET}
+      - FREQTRADE__TELEGRAM__TOKEN=${FREQTRADE__TELEGRAM__TOKEN}
+      - FREQTRADE__TELEGRAM__CHAT_ID=${FREQTRADE__TELEGRAM__CHAT_ID}
 
     # deploy:
     #   resources:
